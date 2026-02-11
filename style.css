@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle, #ffccd5, #ff4d6d);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Floating Hearts */
+.hearts span {
+  position: absolute;
+  bottom: -50px;
+  font-size: 24px;
+  animation: float 8s infinite ease-in;
+  opacity: 0.7;
+}
+
+.hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
+.hearts span:nth-child(3) { left: 40%; animation-delay: 4s; }
+.hearts span:nth-child(4) { left: 55%; animation-delay: 1s; }
+.hearts span:nth-child(5) { left: 70%; animation-delay: 3s; }
+.hearts span:nth-child(6) { left: 85%; animation-delay: 5s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+/* Container */
+.container {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255,0,90,0.6);
+}
+
+h1 {
+  color: white;
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px #ff85a2;
+}
+
+.text {
+  margin: 20px 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.proposal {
+  color: #fff;
+  margin: 20px 0;
+  font-size: 1.8rem;
+  text-shadow: 0 0 15px #fff;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff1e56;
+  color: white;
+  box-shadow: 0 0 20px #ff1e56;
+}
+
+.yes:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #ff1e56;
+}
+
+.no {
+  background: #fff;
+  color: #ff1e56;
+}
+
+#response {
+  margin-top: 25px;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 0 15px #fff;
+}
+
+#ringBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 100px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s ease;
+  z-index: 10;
+}
+
+#ringBox.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  70% { transform: translate(-50%, -50%) scale(1.2); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+.sparkles {
+  font-size: 24px;
+  margin-top: 10px;
+  animation: sparkle 1.5s infinite;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+/* I Love You Background Container */
+.love-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 0;
+}
+
+/* Individual floating love text */
+.love {
+  position: absolute;
+  bottom: -40px;
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  animation: loveFloat 6s linear forwards;
+  text-shadow: 0 0 12px #ffb3c6;
+  white-space: nowrap;
+}
+
+@keyframes loveFloat {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  100% {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}

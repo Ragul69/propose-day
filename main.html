@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body >
+    <!-- I Love You Background -->
+<div class="love-bg" id="loveBg"></div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop preload="none">
+  <source src="assets/romentic .mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- Floating Hearts -->
+<div class="hearts">
+  <span>❤️</span><span>💖</span><span>💘</span><span>❤️</span>
+  <span>💗</span><span>💞</span><span>❤️</span>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <h1>Hiii <span class="name">Chello</span> ❤️</h1>
+
+  <p class="text">
+    From the moment you came into my life,<br>
+    everything changed beautifully.<br><br>
+    I don’t want a perfect story,<br>
+    I want <b>you</b>, forever.
+  </p>
+
+  <h2 class="proposal">Will You Marry Me? 💍</h2>
+
+  <div class="buttons">
+    <button class="yes" onclick="sayYes()">YES 💖</button>
+    <button class="no" onmouseover="moveNo()">NO 😅</button>
+  </div>
+
+  <div id="ringBox">
+  💍
+  <div class="sparkles">
+    ✨ ✨ ✨
+  </div>
+</div>
+
+  <p id="response"></p>
+</div>
+<script>
+let musicPlayed = false;
+
+/* Move NO button */
+function moveNo() {
+  const noBtn = document.querySelector('.no');
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+/* YES button – START EVERYTHING */
+function sayYes() {
+  const music = document.getElementById("bgMusic");
+
+  if (!musicPlayed) {
+    music.volume = 0;
+    music.play();
+
+    let vol = 0;
+    const fade = setInterval(() => {
+      if (vol < 0.5) {
+        vol += 0.02;
+        music.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 200);
+
+    musicPlayed = true;
+  }
+
+  document.getElementById("response").innerHTML =
+    "Parkavi ❤️<br>I Love You Forever.";
+
+  document.getElementById("ringBox").classList.add("show");
+  startLoveBackground();
+}
+
+/* I Love You background animation */
+function startLoveBackground() {
+  const bg = document.getElementById("loveBg");
+  bg.style.opacity = 1;
+
+  setInterval(() => {
+    const love = document.createElement("div");
+    love.className = "love";
+    love.innerHTML = "❤️ Love you Chello ❤️";
+    love.style.left = Math.random() * 100 + "vw";
+    love.style.animationDuration = (4 + Math.random() * 4) + "s";
+    bg.appendChild(love);
+
+    setTimeout(() => love.remove(), 7000);
+  }, 300);
+}
+</script>
+
+
+
+
+</body>
+</html>
